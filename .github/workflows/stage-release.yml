@@ -17,7 +17,7 @@ jobs:
   dev-release:
     name: Release to DEV 
     if: github.event_name == 'pull_request'
-    needs: [uild]
+    needs: [build]
     runs-on: ubuntu-latest
     environment: 
       name: dev
