@@ -1,0 +1,47 @@
+name: build and staged release
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        run: Building........ done!
+    
+  dev-release:
+    name: Release to DEV 
+    if: github.event_name == 'pull_request'
+    needs: [uild]
+    runs-on: ubuntu-latest
+    environment: 
+      name: dev
+    steps:
+      - name: Release
+        run: Releasing....... done!
+    
+  acc-release:
+    name: Release to ACC
+    if: github.event.ref == 'refs/heads/main'
+    needs: [build]
+    runs-on: ubuntu-latest
+    environment: 
+      name: acc
+    steps:
+      - name: Release
+        run: Releasing...... done!
+            
+  prd-release:
+    name: Release to PRD
+    needs: [acc-release]
+    runs-on: ubuntu-latest
+    environment: 
+      name: PRD
+    steps:
+      - name: Release
+        run: Releasing....... done!
