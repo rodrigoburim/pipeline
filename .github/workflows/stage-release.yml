@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-        run: Building........ done!
+        run: echo Building........ done!
     
   dev-release:
     name: Release to DEV 
@@ -23,7 +23,7 @@ jobs:
       name: dev
     steps:
       - name: Release
-        run: Releasing....... done!
+        run: echo Releasing....... done!
     
   acc-release:
     name: Release to ACC
@@ -34,7 +34,7 @@ jobs:
       name: acc
     steps:
       - name: Release
-        run: Releasing...... done!
+        run: echo Releasing...... done!
             
   prd-release:
     name: Release to PRD
